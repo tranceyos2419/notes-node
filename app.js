@@ -1,12 +1,20 @@
-var command = process.argv;
+const yargs = require('yargs');
+const notes = require('./notes');
 
-console.log(command[2]);
-if (command[2] === 'read') {
-    console.log('reading it');
-} else if (command[2] === 'list') {
-    console.log('listing it');
-} else if (command[2] === 'note') {
-    console.log('noting it');
+var argv = yargs.argv;
+var command = argv._[0];
+console.log('Yargs ', argv);
+
+console.log(command);
+const { title, body } = argv;
+if (command === 'add') {
+    notes.addNote(title, body)
+} else if (command === 'list') {
+    notes.getAll()
+} else if (command === 'read') {
+    notes.readNote(title)
+} else if (command === 'remove') {
+    notes.removeNote(title)
 } else {
     console.log('command is not recognized');
 }
