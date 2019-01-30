@@ -1,8 +1,5 @@
-const fs = require('fs');
-const os = require('os');
-const notes = require('./notes')
+const _ = require('lodash');
 
-// fs.appendFileSync('hello.txt', `Hello ${os.userInfo().username}`);
-// console.log(notes.age);
+var filterdArray = _.uniq(['Yoshi', 'Yoshi'])
 
-console.log(notes.addNote());
+console.log(filterdArray);
