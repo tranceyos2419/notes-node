@@ -15,7 +15,8 @@ if (command === 'add') {
 } else if (command === 'list') {
     notes.getAll()
 } else if (command === 'read') {
-    notes.readNotes(title)
+    const foundNote = notes.readNotes(title);
+    foundNote.length > 0 ? console.log(`Found Note: ${JSON.stringify(foundNote)}`) : console.log(`Note not found`);
 } else if (command === 'remove') {
     notes.removeNote(title) ? console.log(`note is removed`) : console.log(`note is not removed`);
 } else if (command === 'clear') {

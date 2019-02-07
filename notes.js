@@ -29,7 +29,9 @@ const getAll = () => {
 }
 
 const readNotes = (title) => {
-    console.log(`Reading ${title}`);
+    let notes = readNote();
+    let foundNote = notes.filter(note => note.title === title)
+    return foundNote;
 }
 
 const removeNote = title => {
