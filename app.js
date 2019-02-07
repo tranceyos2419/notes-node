@@ -17,7 +17,7 @@ if (command === 'add') {
 } else if (command === 'read') {
     notes.readNotes(title)
 } else if (command === 'remove') {
-    notes.removeNote(title)
+    notes.removeNote(title) ? console.log(`note is removed`) : console.log(`note is not removed`);
 } else if (command === 'clear') {
     notes.clearNote()
 } else {

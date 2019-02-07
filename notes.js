@@ -33,7 +33,11 @@ const readNotes = (title) => {
 }
 
 const removeNote = title => {
-    console.log(`remove ${title}`);
+    let notes = readNote()
+    let removedNote = notes.filter(note => note.title !== title);
+    saveNote(removedNote)
+    return notes.length !== removedNote.length;
+
 }
 
 const clearNote = () => {
