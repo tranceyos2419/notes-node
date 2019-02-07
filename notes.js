@@ -25,7 +25,7 @@ const addNote = (title, body) => {
 }
 
 const getAll = () => {
-    console.log('Get All of things');
+    return readNote();
 }
 
 const readNotes = (title) => {

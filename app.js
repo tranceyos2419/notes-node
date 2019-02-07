@@ -13,7 +13,12 @@ if (command === 'add') {
     var note = notes.addNote(title, body)
     note !== undefined ? console.log('add note') : console.log('title already exist');
 } else if (command === 'list') {
-    notes.getAll()
+    let allNotes = notes.getAll()
+    if (allNotes.length > 0) {
+        allNotes.forEach(note => console.log(JSON.stringify(note)))
+    } else {
+        console.log('No notes');
+    }
 } else if (command === 'read') {
     const foundNote = notes.readNotes(title);
     foundNote.length > 0 ? console.log(`Found Note: ${JSON.stringify(foundNote)}`) : console.log(`Note not found`);
