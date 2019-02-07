@@ -15,7 +15,7 @@ const saveNote = notes => fs.writeFileSync('notes-data.json', JSON.stringify(not
 const addNote = (title, body) => {
     let notes = readNote()
     let note = { title, body };
-
+    debugger
     let checkDuplication = notes.filter(note => note.title === title)
     if (checkDuplication.length === 0) {
         notes.push(note);
@@ -25,7 +25,7 @@ const addNote = (title, body) => {
 }
 
 const getAll = () => {
-    console.log('Get All');
+    console.log('Get All of things');
 }
 
 const readNotes = (title) => {
