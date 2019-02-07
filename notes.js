@@ -1,23 +1,26 @@
 const fs = require('fs');
 
-
-const addNote = (title, body) => {
-    let notes = []
-    let note = { title, body };
+const readNote = () => {
     try {
         let str = fs.readFileSync('./notes-data.json');
         notes = JSON.parse(str)
-        // console.log(notes);
+        return notes;
     } catch (e) {
+        return [];
     }
+}
+
+const saveNote = notes => fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+
+const addNote = (title, body) => {
+    let notes = readNote()
+    let note = { title, body };
 
     let checkDuplication = notes.filter(note => note.title === title)
-    console.log(checkDuplication);
     if (checkDuplication.length === 0) {
         notes.push(note);
-        fs.writeFileSync('notes-data.json', JSON.stringify(notes))
-    } else {
-        console.log('not saved');
+        saveNote(notes)
+        return note;
     }
 }
 
@@ -25,7 +28,7 @@ const getAll = () => {
     console.log('Get All');
 }
 
-const readNote = (title) => {
+const readNotes = (title) => {
     console.log(`Reading ${title}`);
 }
 
@@ -33,10 +36,14 @@ const removeNote = title => {
     console.log(`remove ${title}`);
 }
 
+const clearNote = () => {
+    fs.writeFileSync('notes-data.json', '')
+}
 module.exports = {
     // addNote: addNote (this is identical to just addNote in ES6 syntax)
     addNote,
     getAll,
-    readNote,
-    removeNote
+    readNotes,
+    removeNote,
+    clearNote
 }
