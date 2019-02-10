@@ -18,12 +18,17 @@ const showResults = (errorMessage, results) => {
   if (errorMessage) {
     console.log(`errorMessage: ${errorMessage}`);
   } else {
+    weather.getWeather(results.latitude, results.longitude, displayResults);
     console.log(JSON.stringify(results, undefined, 2));
   }
 };
 
-let res = geo.geocodeAddress(argv.address, showResults);
-console.log(`res ${res}`);
-// .then(results => {
-//   weather.getWeather(results.latitude, results.longitude, showResults);
-// });
+const displayResults = (errorMessage, results) => {
+  if (errorMessage) {
+    console.log(`errorMessage: ${errorMessage}`);
+  } else {
+    console.log(JSON.stringify(results, undefined, 2));
+  }
+};
+
+geo.geocodeAddress(argv.address, showResults);
