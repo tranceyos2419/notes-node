@@ -1,0 +1,25 @@
+{
+  "name": "the-complete-node.js-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranceyos2419/the-complete-node.js-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tranceyos2419/the-complete-node.js-2/issues"
+  },
+  "homepage": "https://github.com/tranceyos2419/the-complete-node.js-2#readme"
+}
