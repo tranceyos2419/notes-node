@@ -1,15 +1,25 @@
+//! type "nodemon app.js -e js,hbs" to watch changes
 const express = require("express");
-
+const hbs = require("hbs");
 const app = express();
 
+hbs.registerPartials(__dirname + "/views/partials");
 app.set("view engine", "hbs");
 app.use(express.static(__dirname + "/public"));
+
+hbs.registerHelper("getCurrentYear", () => {
+  return new Date().getFullYear();
+});
+
+hbs.registerHelper("screamIt", (text01, text02) => {
+  return `${text01} ${text02}`;
+});
 
 app.get("/", (req, res) => {
   res.render("home.hbs", {
     pageTitle: "Home page",
-    currentYear: new Date().getFullYear(),
-    welcome: "Welcome to my page"
+    welcome: "Welcome to my page",
+    user: "Yoshi"
   });
 });
 
@@ -19,8 +29,7 @@ app.get("/hello", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("about.hbs", {
-    pageTitle: "About page",
-    currentYear: new Date().getFullYear()
+    pageTitle: "About page"
   });
 });
 
@@ -37,4 +46,4 @@ app.get("/bad", (req, res) => {
   });
 });
 
-app.listen(3001, console.log("listing 3001"));
+app.listen(3022, console.log("listing 3022"));
