@@ -51,6 +51,12 @@ app.get("/about", (req, res) => {
   });
 });
 
+app.get("/profile", (req, res) => {
+  res.render("profile.hbs", {
+    pageTitle: "Profile"
+  });
+});
+
 app.get("/json", (req, res) => {
   res.send({
     name: "Yoshi",
