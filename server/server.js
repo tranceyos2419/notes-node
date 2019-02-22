@@ -1,59 +1,35 @@
-//! creating 2 same documents
-const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
 
-// mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost:27017/TodoApp`);
+const { mongoose } = require("./db/mongoose");
+const { Todo } = require("./models/todo");
+const { User } = require("./models/user");
 
-// let Todo = mongoose.model("Todo", {
-//   text: {
-//     type: String,
-//     required: true,
-//     minlength: 1,
-//     trim: true
-//   },
-//   completed: {
-//     type: Boolean,
-//     default: false
-//   },
-//   completedAt: {
-//     type: Number,
-//     default: null
-//   }
-// });
+const app = express();
 
-// let newTodo = new Todo({
-//   text: "23   "
-// });
+app.use(bodyParser.json());
 
-// newTodo
-//   .save()
-//   .then(doc => {
-//     console.log("Save todo", doc);
-//   })
-//   .catch(e => {
-//     console.log("error", e);
-//   });
-
-//* User
-
-let User = mongoose.model("user", {
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    minlength: 1
-  }
+app.get("/", (req, res) => {
+  res.send("you got it");
 });
 
-let newUser = new User({
-  email: "tranceyos2419@gmail.com"
-});
-
-newUser
-  .save()
-  .then(doc => {
-    console.log("Saved User", doc);
-  })
-  .catch(e => {
-    console.log("error ", e);
+app.post("/todos", (req, res) => {
+  let todo = new Todo({
+    text: req.body.text,
+    completed: req.body.completed,
+    completedAt: req.body.completedAt
   });
+
+  todo
+    .save()
+    .then(doc => {
+      res.send(doc);
+    })
+    .catch(e => {
+      res.status(400).send(e);
+    });
+});
+
+app.listen(3123, () => {
+  console.log("express is listening at the port: 3123");
+});
