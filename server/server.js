@@ -33,3 +33,5 @@ app.post("/todos", (req, res) => {
 app.listen(3123, () => {
   console.log("express is listening at the port: 3123");
 });
+
+module.exports = { app };
