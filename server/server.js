@@ -7,7 +7,7 @@ const { Todo } = require("./models/todo");
 const { User } = require("./models/user");
 
 const app = express();
-
+const port = process.env.PORT || 3123;
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -55,8 +55,8 @@ app.get("/todos/:id", (req, res) => {
     });
 });
 
-app.listen(3123, () => {
-  console.log("express is listening at the port: 3123");
+app.listen(port, () => {
+  console.log(`express is listening at the port: ${port}`);
 });
 
 module.exports = { app };
