@@ -1,0 +1,33 @@
+{
+  "name": "the-complete-node.js-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "expect": "^1.20.2",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongodb": "^2.2.5",
+    "mongoose": "^5.4.14",
+    "nodemon": "^1.18.10",
+    "supertest": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranceyos2419/the-complete-node.js-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tranceyos2419/the-complete-node.js-2/issues"
+  },
+  "homepage": "https://github.com/tranceyos2419/the-complete-node.js-2#readme"
+}
